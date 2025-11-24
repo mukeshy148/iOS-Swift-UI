@@ -1,25 +1,22 @@
-func positionDescription (point: (x : Int , y : Int)) ->String{
-    switch point{
-    case (0,0):
-            "\(point) is at the Origin"
-    case (_,0):
-            "\(point) is at X-Axis"
-    case (0,_):
-            "\(point) is at X-Axis"
-    case (0... , 0...):
-            "\(point) is at First Qurdt"
-    case (...0 , 0...):
-            "\(point) is at Second Qurdt"
-    case (...0,...0):
-            "\(point) is at Third Qurdt"
-    case (0...,...0):
-        "\(point) is at Fourth Qurdt"
-        
+func positionDescription(point: (x: Int, y: Int)) -> String {
+    switch point {
+    case (0, 0):
+        return "\(point) is at the Origin"
+    case (_, 0):
+        return "\(point) is on the X-Axis"
+    case (0, _):
+        return "\(point) is on the Y-Axis"
+    case let (x, y) where x > 0 && y > 0:
+        return "\(point) is in the First Quadrant"
+    case let (x, y) where x < 0 && y > 0:
+        return "\(point) is in the Second Quadrant"
+    case let (x, y) where x < 0 && y < 0:
+        return "\(point) is in the Third Quadrant"
+    case let (x, y) where x > 0 && y < 0:
+        return "\(point) is in the Fourth Quadrant"
     default:
-        "\(point) is Unknown Postion"
-        
+        return "\(point) is in an Unknown Position"
     }
 }
 
-print("\n\t\tPosition Description ")
 print(positionDescription(point: (x: 3, y: -3)))
